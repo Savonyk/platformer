@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Barrel
+  - Enemy
+  - Interactable
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - Player
+  - Background
+  - Tilemap
+  - Interact
+  - Ground
+  - Wall
+  - Trash
+  - Level
+  - Checkers
+  - Enemy
+  - ColladableEnemy
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackgroundImage
+    uniqueID: 3405159025
+    locked: 0
+  - name: Decorations
+    uniqueID: 2387609865
+    locked: 0
+  - name: Level
+    uniqueID: 3363805045
+    locked: 0
+  - name: Interact
+    uniqueID: 1286650521
+    locked: 0
+  - name: Player
+    uniqueID: 3768120657
+    locked: 0
+  - name: Creature
+    uniqueID: 290885219
+    locked: 0
