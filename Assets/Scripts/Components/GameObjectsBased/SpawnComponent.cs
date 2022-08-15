@@ -1,4 +1,5 @@
 using UnityEngine;
+using Scripts.Utils;
 
 namespace Scripts.Components.GameObjectsBased
 {
@@ -13,7 +14,7 @@ namespace Scripts.Components.GameObjectsBased
         [ContextMenu("Spawn")]
         public void Spawn()
         {
-            var instantiate = Instantiate(_prefabToSpawn, _target.position, Quaternion.identity);
+            var instantiate = SpawnUtils.Spawn(PrefabToSpawn, _target.position, Quaternion.identity);
             instantiate.transform.localScale = _target.lossyScale;
             instantiate.SetActive(true);
         }

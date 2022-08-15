@@ -13,7 +13,7 @@ namespace Scripts.Creatures.Mobs
         [SerializeField] private float _damageJumpForce;
         [SerializeField] protected ColiderCheckComponent CheckGround;
         [SerializeField] protected SpawnComponentList Particles;
-        [SerializeField] private CheckFigureOverlayComponent _attackRange;
+        [SerializeField] private CheckCircleOverlayComponent _attackRange;
         [SerializeField] protected PlayClipComponent AudioClips;
 
         protected Animator Animator;

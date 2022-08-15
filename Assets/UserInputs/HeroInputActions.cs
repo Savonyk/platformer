@@ -71,6 +71,15 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""7bc43a80-7866-4c26-9e18-c0327006fb31"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -249,6 +258,17 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
                     ""action"": ""UseItem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""67a377b7-b5c5-4fc5-8791-506459835f14"",
+                    ""path"": ""<Keyboard>/p"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -262,6 +282,7 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
         m_Hero_Attack = m_Hero.FindAction("Attack", throwIfNotFound: true);
         m_Hero_Throw = m_Hero.FindAction("Throw", throwIfNotFound: true);
         m_Hero_UseItem = m_Hero.FindAction("UseItem", throwIfNotFound: true);
+        m_Hero_Pause = m_Hero.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -326,6 +347,7 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Hero_Attack;
     private readonly InputAction m_Hero_Throw;
     private readonly InputAction m_Hero_UseItem;
+    private readonly InputAction m_Hero_Pause;
     public struct HeroActions
     {
         private @HeroInputActions m_Wrapper;
@@ -335,6 +357,7 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_Hero_Attack;
         public InputAction @Throw => m_Wrapper.m_Hero_Throw;
         public InputAction @UseItem => m_Wrapper.m_Hero_UseItem;
+        public InputAction @Pause => m_Wrapper.m_Hero_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Hero; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -359,6 +382,9 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
                 @UseItem.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
                 @UseItem.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
                 @UseItem.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnUseItem;
+                @Pause.started -= m_Wrapper.m_HeroActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_HeroActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_HeroActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_HeroActionsCallbackInterface = instance;
             if (instance != null)
@@ -378,6 +404,9 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
                 @UseItem.started += instance.OnUseItem;
                 @UseItem.performed += instance.OnUseItem;
                 @UseItem.canceled += instance.OnUseItem;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -389,5 +418,6 @@ public partial class @HeroInputActions : IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnThrow(InputAction.CallbackContext context);
         void OnUseItem(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

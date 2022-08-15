@@ -6,7 +6,7 @@ namespace Scripts.Components.Health
 {
     class RadialModifyHealthComponent : MonoBehaviour
     {
-        [SerializeField] private float _radius;
+        [SerializeField] private int _radius;
         [SerializeField] private int _healthDelta;
 
         private Vector2 _targetPosition;
@@ -32,7 +32,7 @@ namespace Scripts.Components.Health
 
             if (distanceRelation >= 1) return;
 
-            var damage = Mathf.Lerp(_healthDelta, 0, distanceRelation);
+            var damage = (int)Mathf.Lerp(_healthDelta, 0, distanceRelation);
 
             healthComponent.ModifyHealth(damage);
         }
