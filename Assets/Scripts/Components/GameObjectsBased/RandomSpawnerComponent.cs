@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEditor;
 using Random = UnityEngine.Random;
+using Scripts.Utils;
 
 namespace Scripts.Components.GameObjectsBased
 {
@@ -53,7 +54,7 @@ namespace Scripts.Components.GameObjectsBased
 
         private void Spawn(GameObject particle)
         {
-            var instance = Instantiate(particle, transform.position, Quaternion.identity);
+            var instance = SpawnUtils.Spawn(particle, transform.position, Quaternion.identity);
             var rigidbody = instance.GetComponent<Rigidbody2D>();
 
             var randomAngle = Random.Range(0, _sectorAngle);

@@ -1,22 +1,28 @@
 ﻿using UnityEngine;
 using System;
+using Scripts.Utils;
 
 namespace Scripts.Components.Audio
 {
     public class PlayClipComponent : MonoBehaviour
     {
-        [SerializeField] private AudioSource _source;
         [SerializeField] private SoundData[] _sounds;
+        private AudioSource _source;
 
         public void Play(string id)
         {
             foreach (var sound in _sounds)
             {
-                if(sound.Id == id)
+                if (sound.Id != id) continue;
+
+                if(_source == null)
                 {
-                    _source.PlayOneShot(sound.Clip);
-                    return;
+                    _source = SfxAudioUtils.FindSfxSource();
                 }
+
+                _source.PlayOneShot(sound.Clip);
+                break;
+
             }
         }
 

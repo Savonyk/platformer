@@ -1,133 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &162387321
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 162387322}
-  - component: {fileID: 162387323}
-  m_Layer: 6
-  m_Name: Ambient
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &162387322
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162387321}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5729727954723866325}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &162387323
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 162387321}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: cfe43ba318457ee43bfffee6f31afe54, type: 2}
-  m_audioClip: {fileID: 8300000, guid: 73ae4c0a039ff334ea0e2ee6024222dd, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &291165665
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,9 +55,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 710876248}
-  - component: {fileID: 710876249}
+  - component: {fileID: 2202583072625365614}
   m_Layer: 6
-  m_Name: SFX
+  m_Name: AudioListener
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -206,102 +78,14 @@ Transform:
   m_Father: {fileID: 5729727954723866325}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &710876249
-AudioSource:
+--- !u!81 &2202583072625365614
+AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 710876247}
   m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 24300002, guid: 2cbe9a1f39b940a47abe8f37339f846d, type: 2}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &1166483313648097355
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804d3645e91c53449bf0f93380e2e251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _radius: 0.52
   _mask:
     serializedVersion: 2
     m_Bits: 512
@@ -414,7 +199,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _radius: 0.5
 --- !u!114 &3775044346767599355
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -510,7 +294,6 @@ GameObject:
   - component: {fileID: 5729727954723866322}
   - component: {fileID: 5729727954723866333}
   - component: {fileID: 8613499038029669431}
-  - component: {fileID: 1471688665}
   - component: {fileID: 1471688666}
   - component: {fileID: 1803252306}
   m_Layer: 6
@@ -543,7 +326,6 @@ Transform:
   - {fileID: 291165666}
   - {fileID: 538592553486144198}
   - {fileID: 710876248}
-  - {fileID: 162387322}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -751,22 +533,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _onDeath:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8613499038029669431}
-        m_TargetAssemblyTypeName: Scripts.Components.LevelManagment.ReloadLevelComponent,
-          Assembly-CSharp
-        m_MethodName: OnReloadScene
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
   _onHeal:
     m_PersistentCalls:
       m_Calls: []
@@ -777,6 +543,22 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: Scripts.Creatures.Hero.Hero, Assembly-CSharp
         m_MethodName: ChangeHealth
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  _onDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8613499038029669431}
+        m_TargetAssemblyTypeName: Scripts.Components.LevelManagment.ReloadLevelComponent,
+          Assembly-CSharp
+        m_MethodName: OnReloadScene
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -797,14 +579,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 25f91c5b649db0b4eaf77d9df9f634c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!81 &1471688665
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5729727954723866315}
-  m_Enabled: 1
 --- !u!114 &1471688666
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -817,7 +591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1fd539981cf96741beea35ec7b65a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _source: {fileID: 710876249}
   _sounds:
   - _id: Hurt
     _clip: {fileID: 8300000, guid: 4946cb3175a01bb409b59341788a9e5b, type: 3}
@@ -932,6 +705,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 0af301a4-d7cc-472d-abe5-e3bf1e570d06
     m_ActionName: Hero/UseItem[/Keyboard/f]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5729727954723866324}
+        m_TargetAssemblyTypeName: Scripts.Creatures.Hero.HeroInputReader, Assembly-CSharp
+        m_MethodName: OnPaused
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7bc43a80-7866-4c26-9e18-c0327006fb31
+    m_ActionName: Hero/Pause[/Keyboard/escape]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero
@@ -1141,6 +930,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 804d3645e91c53449bf0f93380e2e251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _radius: 0.45
   _mask:
     serializedVersion: 2
     m_Bits: 98305
@@ -1161,7 +951,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  _radius: 0.45
 --- !u!114 &5729727955918852359
 MonoBehaviour:
   m_ObjectHideFlags: 0

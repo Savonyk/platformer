@@ -6,15 +6,15 @@ namespace Scripts.Components.Health
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private float _health;
+        [SerializeField] private int _health;
         [SerializeField] private UnityEvent _onDamage;
         [SerializeField] private UnityEvent _onHeal;
         [SerializeField] ChangeHealthEvent _onChange;
 
         public UnityEvent _onDeath;
-        public float Health { get { return _health; } set { _health = value; } }
+        public int Health { get { return _health; } set { _health = value; } }
 
-        public void ModifyHealth(float healthDelta)
+        public void ModifyHealth(int healthDelta)
         {
 
             _health += healthDelta;
@@ -41,6 +41,6 @@ namespace Scripts.Components.Health
         }
 
         [Serializable]
-        public class ChangeHealthEvent : UnityEvent<float> {}
+        public class ChangeHealthEvent : UnityEvent<int> {}
     }
 }

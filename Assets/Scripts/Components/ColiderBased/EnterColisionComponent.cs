@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
-using Scripts.Utils;
 
 namespace Scripts.Components.ColiderBased
 {
@@ -16,7 +15,7 @@ namespace Scripts.Components.ColiderBased
             {
 
                 _action?.Invoke(collision.gameObject);
-                Debug.Log(collision.gameObject.tag);
+                
             }
         }
 

@@ -9,6 +9,8 @@ using Scripts.Components.LevelManagment;
 using Scripts.Components.Health;
 using System.Collections;
 using Scripts.Model.Data;
+using UnityEngine.SceneManagement;
+using Cinemachine;
 
 namespace Scripts.Creatures.Hero
 {
@@ -34,14 +36,9 @@ namespace Scripts.Creatures.Hero
         [SerializeField] private AnimatorController _armed;
         [SerializeField] private AnimatorController _unarmed;
 
-
-
         private float _defaultGravityForce;
-
         private bool _isAllowingDoubleJump;
-
         private bool _isRepluseToWall;
-
         private bool _isSuperThrow;
 
         private GameSession _currentSession;
@@ -65,7 +62,7 @@ namespace Scripts.Creatures.Hero
             _currentSession = FindObjectOfType<GameSession>();
 
             _healthComponent = GetComponent<HealthComponent>();
-            _healthComponent.Health = _currentSession.Data.Health;
+            _healthComponent.Health = _currentSession.Data.Health.Value;
             _currentSession.Data.Inventory.OnChanged += OnInventoryChanged;
             UpdateHeroWeapon();
         }
@@ -255,9 +252,9 @@ namespace Scripts.Creatures.Hero
             _currentSession.Data.Inventory.Remove("HealthPotion", 1);
         }
 
-        public void ChangeHealth(float health)
+        public void ChangeHealth(int health)
         {
-            _currentSession.Data.Health = health;
+            _currentSession.Data.Health.Value = health;
         }
     }
 }

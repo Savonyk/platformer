@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using Scripts.Model.Data;
+using System;
+using UnityEngine.SceneManagement;
 
 namespace Scripts.Model
 {
@@ -13,6 +15,7 @@ namespace Scripts.Model
 
         private void Awake()
         {
+            LoadHUD();
             if (IsSessionExit())
             {
                 Destroy(gameObject);
@@ -22,6 +25,11 @@ namespace Scripts.Model
                 Save();
                 DontDestroyOnLoad(this);
             }
+        }
+
+        private void LoadHUD()
+        {
+            SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         }
 
         private bool IsSessionExit()
