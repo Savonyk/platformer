@@ -6,9 +6,8 @@ namespace Scripts.Components.GameObjectsBased
 {
    public class SpawnComponentList : MonoBehaviour
     {
-        [SerializeField] private SpawnData[] _spawners;
-
-
+        [SerializeField] 
+        private SpawnData[] _spawners;
 
         public void SpawnAll()
         {

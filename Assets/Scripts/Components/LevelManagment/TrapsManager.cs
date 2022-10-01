@@ -8,8 +8,10 @@ namespace Scripts.Components.GameObjectsBased
 {
     class TrapsManager : MonoBehaviour
     {
-        [SerializeField] private List<Trap> _traps;
-        [SerializeField] private ResetComponent _fireDelay;
+        [SerializeField] 
+        private List<Trap> _traps;
+        [SerializeField] 
+        private ResetComponent _fireDelay;
 
         private int _currentTrapIndex;
 

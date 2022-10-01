@@ -5,9 +5,8 @@ namespace Scripts.Components.Health
 {
     public class ModifyHealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _healthDelta;
-
-
+        [SerializeField] 
+        private int _healthDelta;
         public void ChangeHealth(GameObject target)
         {
             var healthComponent = target.GetComponent<HealthComponent>();
@@ -20,5 +19,4 @@ namespace Scripts.Components.Health
         }
 
     }
-
 }

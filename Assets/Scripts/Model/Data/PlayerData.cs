@@ -7,11 +7,12 @@ namespace Scripts.Model.Data
     [Serializable]
     public class PlayerData
     {
-        [SerializeField] private InventoryData _inventory;
+        [SerializeField] 
+        private InventoryData _inventory;
+
         public IntObservableProperty Health = new ();
 
         public InventoryData Inventory => _inventory;
-
 
         public PlayerData Clone()
         {

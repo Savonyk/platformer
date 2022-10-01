@@ -2,13 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Model.Def;
+using System.Linq;
 
 namespace Scripts.Model.Data
 {
     [Serializable]
     public class InventoryData
     {
-        [SerializeField] private List<InventoryItemData> _inventory = new ();
+        [SerializeField] 
+        private List<InventoryItemData> _inventory = new ();
 
         public delegate void OnInventoryChanged(string id, int value);
 
@@ -19,11 +21,11 @@ namespace Scripts.Model.Data
 
             if (value <= 0) return;
 
-            var itemDefinition = DefinitionFacade.Instance.Items.Get(id);
+            var itemDefinition = DefinitionFacade.Instance.Items.GetItem(id);
 
             if (itemDefinition.IsVoid) return;
 
-            if (itemDefinition.IsStacked)
+            if (itemDefinition.HasTag(ItemTagDefinition.Stackable))
             {
                 AddToStack(id, value);
             }
@@ -68,11 +70,11 @@ namespace Scripts.Model.Data
 
         public void Remove(string id, int value)
         {
-            var itemDefinition = DefinitionFacade.Instance.Items.Get(id);
+            var itemDefinition = DefinitionFacade.Instance.Items.GetItem(id);
 
             if (itemDefinition.IsVoid) return;
 
-            if (itemDefinition.IsStacked)
+            if (itemDefinition.HasTag(ItemTagDefinition.Stackable))
             {
                 RemoveFromStack(id, value);
             }
@@ -133,6 +135,23 @@ namespace Scripts.Model.Data
             }
 
             return null;
+        }
+
+        public InventoryItemData[] GetArrayItems(params ItemTagDefinition[] tags)
+        {
+            var returnedValue = new List<InventoryItemData>();
+
+            foreach (var item in _inventory)
+            {
+                var itemDefinition = DefinitionFacade.Instance.Items.GetItem(item.Id);
+                var isAllRequirementsMet = tags.All(tag => itemDefinition.HasTag(tag));
+                if (isAllRequirementsMet)
+                {
+                    returnedValue.Add(item);
+                }
+            }
+
+            return returnedValue.ToArray();
         }
 
     }

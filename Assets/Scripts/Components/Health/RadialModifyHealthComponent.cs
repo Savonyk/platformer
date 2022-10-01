@@ -6,12 +6,13 @@ namespace Scripts.Components.Health
 {
     class RadialModifyHealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _radius;
-        [SerializeField] private int _healthDelta;
+        [SerializeField] 
+        private int _radius;
+        [SerializeField]
+        private int _healthDelta;
 
         private Vector2 _targetPosition;
         private Vector2 _currentPosition;
-
         private Vector2 _maxPointForDamage;
 
         public void ChangeHealth(GameObject target)

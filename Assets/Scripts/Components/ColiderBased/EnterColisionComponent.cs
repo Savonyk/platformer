@@ -6,8 +6,10 @@ namespace Scripts.Components.ColiderBased
 {
     public class EnterColisionComponent : MonoBehaviour
     {
-        [SerializeField] private string _tag;
-        [SerializeField] private EnterEvent _action;
+        [SerializeField] 
+        private string _tag;
+        [SerializeField] 
+        private EnterEvent _action;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {

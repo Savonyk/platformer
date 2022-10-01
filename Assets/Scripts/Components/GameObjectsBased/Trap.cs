@@ -7,12 +7,14 @@ namespace Scripts.Components.GameObjectsBased
 {
     class Trap : MonoBehaviour
     {
-        [SerializeField] private ColiderCheckComponent _vision;
-        [SerializeField] private ResetComponent _coolDown;
-        [SerializeField] private SpriteAnimationsComponent _animation;
+        [SerializeField] 
+        private ColiderCheckComponent _vision;
+        [SerializeField] 
+        private ResetComponent _coolDown;
+        [SerializeField] 
+        private SpriteAnimationsComponent _animation;
 
         public bool IsTouchingPlayer => _vision.IsTouching;
-
         private void Update()
         {
             if (!_vision.IsTouching || !_coolDown.IsReady) return;
@@ -20,7 +22,6 @@ namespace Scripts.Components.GameObjectsBased
             Shoot();
 
         }
-
         public void Shoot()
         {
             _coolDown.Reset();

@@ -5,7 +5,8 @@ namespace Scripts.Components.ColiderBased
 {
     public class LineCastCheckComponent : LayerCheckComponent
     {
-        [SerializeField] private Transform _target;
+        [SerializeField] 
+        private Transform _target;
 
         private readonly RaycastHit2D[] _result = new RaycastHit2D[1];
 

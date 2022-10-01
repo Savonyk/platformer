@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using Scripts.Model.Data;
-using System;
+using Scripts.Utils.Disposables;
 using UnityEngine.SceneManagement;
 
 namespace Scripts.Model
@@ -8,10 +8,14 @@ namespace Scripts.Model
     class GameSession : MonoBehaviour
     {
 
-       [SerializeField] private PlayerData _data;
+       [SerializeField] 
+        private PlayerData _data;
+
+        private PlayerData _savedData;
+        private readonly CompositeDisposable _trash = new ();
 
         public PlayerData Data => _data;
-        private PlayerData _savedData;
+        public QuickInventoryModel QuickInventory { get; private set; }
 
         private void Awake()
         {
@@ -23,6 +27,7 @@ namespace Scripts.Model
             else
             {
                 Save();
+                InitInventoryModels();
                 DontDestroyOnLoad(this);
             }
         }
@@ -30,6 +35,17 @@ namespace Scripts.Model
         private void LoadHUD()
         {
             SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
+        }
+
+        public void Save()
+        {
+            _savedData = _data.Clone();
+        }
+
+        private void InitInventoryModels()
+        {
+            QuickInventory = new QuickInventoryModel(Data);
+            _trash.Retain(QuickInventory);
         }
 
         private bool IsSessionExit()
@@ -42,14 +58,16 @@ namespace Scripts.Model
             return false;
         }
 
-        public void Save()
-        {
-            _savedData = _data.Clone();
-        }
-
         public void LoadLastSave()
         {
+            _trash.Dispose();
+            InitInventoryModels();
             _data = _savedData.Clone();
+        }
+
+        private void OnDestroy()
+        {
+            _trash.Dispose();
         }
     }
 }

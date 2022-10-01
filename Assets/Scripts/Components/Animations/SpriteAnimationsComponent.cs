@@ -8,9 +8,12 @@ namespace Scripts.Components.Animations
 
     public class SpriteAnimationsComponent : MonoBehaviour
     {
-        [SerializeField] [Range(1,30)] private int _frameRate = 10;
-        [SerializeField] private UnityEvent<string> _onComplete;
-        [SerializeField] private AnimationClip[] _clips;
+        [SerializeField] [Range(1,30)] 
+        private int _frameRate = 10;
+        [SerializeField] 
+        private UnityEvent<string> _onComplete;
+        [SerializeField] 
+        private AnimationClip[] _clips;
 
         private SpriteRenderer _render;
 
@@ -103,15 +106,16 @@ namespace Scripts.Components.Animations
 
     public class AnimationClip 
     {
-        [SerializeField] private string _name;
-
-        [SerializeField] private bool _loop;
-
-        [SerializeField] private Sprite[] _sprites;
-
-        [SerializeField] private bool _allowNextClip;
-
-        [SerializeField] private UnityEvent _onComplete;
+        [SerializeField] 
+        private string _name;
+        [SerializeField] 
+        private bool _loop;
+        [SerializeField]
+        private Sprite[] _sprites;
+        [SerializeField] 
+        private bool _allowNextClip;
+        [SerializeField] 
+        private UnityEvent _onComplete;
 
         public string Name => _name;
         public Sprite[] Sprites => _sprites;

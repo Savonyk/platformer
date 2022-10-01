@@ -7,7 +7,8 @@ namespace Scripts.UI.HUD
 {
     public class HUDController : MonoBehaviour
     {
-        [SerializeField] private ProgressBarWidget _progressBar;
+        [SerializeField] 
+        private ProgressBarWidget _progressBar;
 
         private GameSession _session;
 

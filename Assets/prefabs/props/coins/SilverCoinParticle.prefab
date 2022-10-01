@@ -178,7 +178,7 @@ MonoBehaviour:
       - m_Target: {fileID: -4223731071315611819}
         m_TargetAssemblyTypeName: Scripts.Components.Collactable.InventoryAddComponent,
           Assembly-CSharp
-        m_MethodName: TryToAdd
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -236,49 +236,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Coin
   _value: 1
-  _OnSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -8301699824759467453}
-        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1198595465258158357}
-        m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-        m_MethodName: Play
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -4657798445462881439}
-        m_TargetAssemblyTypeName: Scripts.Components.Animations.SpriteAnimationsComponent,
-          Assembly-CSharp
-        m_MethodName: SetClip
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: destroy
-          m_BoolArgument: 0
-        m_CallState: 2
-  _OnFail:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!82 &1198595465258158357
 AudioSource:
   m_ObjectHideFlags: 0

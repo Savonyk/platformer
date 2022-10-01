@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Scripts.Utils;
 using UnityEngine.SceneManagement;
 
 namespace Scripts.UI.MainMenu
@@ -10,9 +11,7 @@ namespace Scripts.UI.MainMenu
 
         public void OnShowSetting()
         {
-            var window = Resources.Load<GameObject>("UI/SettingsWindow");
-            var canvas = FindObjectOfType<Canvas>();
-            Instantiate(window, canvas.transform);
+            OpenWindowUtils.CreateWindow("UI/SettingsWindow");
         }
 
         public void OnStartGame()

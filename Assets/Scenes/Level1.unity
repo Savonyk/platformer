@@ -1220,7 +1220,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.8702929, y: 1}
+    m_SensorSize: {x: 2.0457666, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -1315,7 +1315,7 @@ Transform:
   - {fileID: 6335497721334971099}
   - {fileID: 1039653459}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &304697680
 GameObject:
@@ -1842,7 +1842,7 @@ Transform:
   - {fileID: 2023401128}
   - {fileID: 429287681}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &493154171
 PrefabInstance:
@@ -14361,7 +14361,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _data:
     _inventory:
-      _inventory: []
+      _inventory:
+      - Id: Coin
+        Value: 30
+      - Id: Key
+        Value: 1
+      - Id: Sword
+        Value: 10
     Health:
       _value: 10
 --- !u!4 &1616543967
@@ -14414,7 +14420,7 @@ Transform:
   - {fileID: 1427574480}
   - {fileID: 493154172}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1659496882
 GameObject:
@@ -14448,7 +14454,7 @@ Transform:
   - {fileID: 2104093632}
   - {fileID: 1684534093}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1671500369
 GameObject:
@@ -14616,7 +14622,7 @@ Transform:
   - {fileID: 1947041881}
   - {fileID: 4666772}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1684534092
 GameObject:
@@ -14737,7 +14743,7 @@ Transform:
   - {fileID: 337412974}
   - {fileID: 1671500370}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1771416633
 GameObject:
@@ -17667,34 +17673,6 @@ PrefabInstance:
     - target: {fileID: 5729727954723866325, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _health
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 1490687955}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeHealth
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Scripts.Creatures.Hero.Hero, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 5729727954723866333, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}
-      propertyPath: _onChange.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 666f56a176d0c91488899b46eb7908e1, type: 3}

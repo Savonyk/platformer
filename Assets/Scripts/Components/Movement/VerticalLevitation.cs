@@ -4,10 +4,14 @@ namespace Scripts.Components.Movement
 {
     class VerticalLevitation : MonoBehaviour
     {
-        [SerializeField] private float _frequency = 1f;
-        [SerializeField] private float _amplitude = 1f;
-        [SerializeField] private bool _randomize;
-        [SerializeField] private bool _isMoving;
+        [SerializeField] 
+        private float _frequency = 1f;
+        [SerializeField] 
+        private float _amplitude = 1f;
+        [SerializeField] 
+        private bool _randomize;
+        [SerializeField] 
+        private bool _isMoving;
 
         private float _originalY;
         private Rigidbody2D _rigidbody;

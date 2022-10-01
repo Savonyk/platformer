@@ -5,11 +5,12 @@ namespace Scripts.Components.CutScenes
 {
     class ShowTargetComponent : MonoBehaviour
     {
-        [SerializeField] private Transform _target;
-
-        [SerializeField] private CameraStateController _controller;
-
-        [SerializeField] private float _delay = 2f;
+        [SerializeField] 
+        private Transform _target;
+        [SerializeField] 
+        private CameraStateController _controller;
+        [SerializeField] 
+        private float _delay = 2f;
 
 
         private void OnValidate()

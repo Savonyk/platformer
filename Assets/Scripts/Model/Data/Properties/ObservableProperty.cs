@@ -7,7 +7,8 @@ namespace Scripts.Model.Data.Properties
     [Serializable]
     public class ObservableProperty<TPropertyType>
     {
-        [SerializeField] protected TPropertyType _value;
+        [SerializeField] 
+        protected TPropertyType _value;
 
         public delegate void OnPropertyChanged(TPropertyType newValue, TPropertyType oldValue);
         public event OnPropertyChanged OnChanged;
@@ -16,6 +17,14 @@ namespace Scripts.Model.Data.Properties
         {
             OnChanged += call;
             return new ActionDisposable(() => OnChanged -= call);
+        }
+
+        public IDisposable SubscribeAndInvoke(OnPropertyChanged call)
+        {
+            OnChanged += call;
+            var dispose =  new ActionDisposable(() => OnChanged -= call);
+            call(_value, _value);
+            return dispose;
         }
 
         public virtual TPropertyType Value
@@ -29,11 +38,11 @@ namespace Scripts.Model.Data.Properties
 
                 var oldValue = _value;
                 _value = value;
-                InvokeChangeedEvent(_value, oldValue);
+                InvokeChangedEvent(_value, oldValue);
             }
         }
 
-        protected void InvokeChangeedEvent(TPropertyType newValue, TPropertyType oldValue)
+        protected void InvokeChangedEvent(TPropertyType newValue, TPropertyType oldValue)
         {
             OnChanged?.Invoke(newValue, oldValue);
         }

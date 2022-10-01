@@ -5,8 +5,10 @@ namespace Scripts.Components.CutScenes
 {
     public class CameraStateController : MonoBehaviour
     {
-        [SerializeField] private Animator _animator;
-        [SerializeField] private CinemachineVirtualCamera _camera;
+        [SerializeField] 
+        private Animator _animator;
+        [SerializeField] 
+        private CinemachineVirtualCamera _camera;
 
         private static readonly int _isShowedCameraKey = Animator.StringToHash("isShowedCamera");
 

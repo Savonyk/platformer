@@ -2,7 +2,5 @@
 
 namespace Scripts.Model.Def
 {
-    public class StringInventoryItemAttribute : PropertyAttribute
-    {
-    }
+    public class StringInventoryItemAttribute : PropertyAttribute { }
 }

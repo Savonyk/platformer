@@ -5,7 +5,8 @@ namespace Scripts.Components.Interactions
 {
     class InteractableComponent: MonoBehaviour
     {
-        [SerializeField] private UnityEvent _action;
+        [SerializeField] 
+        private UnityEvent _action;
 
         public void Interact()
         {

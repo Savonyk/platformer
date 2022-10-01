@@ -4,12 +4,13 @@ namespace Scripts.Creatures.Weapon
 {
     class SinusoidalProjectile : BaseProjectile
     {
-        [SerializeField] private float _amplitude;
-        [SerializeField] private float _frequency;
+        [SerializeField] 
+        private float _amplitude;
+        [SerializeField] 
+        private float _frequency;
 
         private float _originalY;
         private float _time;
-
 
         protected override void Start()
         {

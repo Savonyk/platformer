@@ -7,9 +7,12 @@ namespace Scripts.Components.LevelManagment
 {
     class TeleportComponent:MonoBehaviour
     {
-        [SerializeField] private Transform _transformDestination;
-        [SerializeField] private float _alphaTime = 1;
-        [SerializeField] private float _moveTime = 1;
+        [SerializeField] 
+        private Transform _transformDestination;
+        [SerializeField] 
+        private float _alphaTime = 1;
+        [SerializeField] 
+        private float _moveTime = 1;
 
         public void Teleport(GameObject target)
         {

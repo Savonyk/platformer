@@ -7,20 +7,20 @@ namespace Scripts.Creatures.Mobs.AI
 {
     public class StationaryAIController : MonoBehaviour
     {
-        [SerializeField] private ColiderCheckComponent _visionCheker;
-
-        [Header("Melee Attack")]
-        [SerializeField] private CheckCircleOverlayComponent _melleAttack;
-        [SerializeField] private ColiderCheckComponent _meleeChecker;
-        [SerializeField] private ResetComponent _meleeCoolDown;
-
-        [Header("Range Attack")]
-        [SerializeField] private SpawnComponent _rangeAttack;
-        [SerializeField] private ResetComponent _rangeCoolDown;
-
+        [SerializeField] 
+        private ColiderCheckComponent _visionCheker;
+        [Header("Melee Attack")] [SerializeField] 
+        private CheckCircleOverlayComponent _melleAttack;
+        [SerializeField] 
+        private ColiderCheckComponent _meleeChecker;
+        [SerializeField] 
+        private ResetComponent _meleeCoolDown;
+        [Header("Range Attack")] [SerializeField] 
+        private SpawnComponent _rangeAttack;
+        [SerializeField] 
+        private ResetComponent _rangeCoolDown;
 
         private Animator _animator;
-
         private static readonly int _isMeleeAttackKey = Animator.StringToHash("melee");
         private static readonly int _isRangeAttackKey = Animator.StringToHash("range");
 

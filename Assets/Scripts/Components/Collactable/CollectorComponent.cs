@@ -7,7 +7,8 @@ namespace Scripts.Components.Collactable
 {
     public class CollectorComponent : MonoBehaviour, ICanAddInInventory
     {
-        [SerializeField] private List<InventoryItemData> _items = new ();
+        [SerializeField] 
+        private List<InventoryItemData> _items = new ();
 
         public void AddInInventory(string id, int value)
         {

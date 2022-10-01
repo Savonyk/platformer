@@ -7,14 +7,16 @@ namespace Scripts.Model.Data
     [CreateAssetMenu(menuName = "Data/GameSettings", fileName = "GameSettings")]
     public class GameSettings : ScriptableObject
     {
-        [SerializeField] private FloatPersistentProperty _music;
-        [SerializeField] private FloatPersistentProperty _sfx;
-
-        public FloatPersistentProperty Music => _music;
-        public FloatPersistentProperty SFX => _sfx;
+        [SerializeField] 
+        private FloatPersistentProperty _music;
+        [SerializeField] 
+        private FloatPersistentProperty _sfx;
 
         private static GameSettings _instance;
+
         public static GameSettings Instance => _instance == null ? LoadGameSettings() : _instance;
+        public FloatPersistentProperty Music => _music;
+        public FloatPersistentProperty SFX => _sfx;
 
         private static GameSettings LoadGameSettings()
         {

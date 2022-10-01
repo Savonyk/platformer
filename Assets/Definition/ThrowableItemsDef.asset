@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e3a350637877ad4da9613d2c2381c43, type: 3}
+  m_Name: ThrowableItemsDef
+  m_EditorClassIdentifier: 
+  _items:
+  - _id: Sword
+    _projectilePrefab: {fileID: 6523838043780029022, guid: 2e12e8a076ff8b7498beaab454ebd8c8, type: 3}

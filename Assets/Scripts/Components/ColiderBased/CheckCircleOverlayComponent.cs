@@ -10,11 +10,14 @@ namespace Scripts.Components.ColiderBased
 {
    public class CheckCircleOverlayComponent : MonoBehaviour
     {
-        [SerializeField] private float _radius;
-
-        [SerializeField] protected LayerMask _mask;
-        [SerializeField] protected string[] _tags;
-        [SerializeField] protected OnCheckOverlap _onCheckOverlap;
+        [SerializeField] 
+        private float _radius;
+        [SerializeField] 
+        protected LayerMask _mask;
+        [SerializeField] 
+        protected string[] _tags;
+        [SerializeField] 
+        protected OnCheckOverlap _onCheckOverlap;
 
         private readonly Collider2D[] _results = new Collider2D[5];
 
@@ -44,7 +47,6 @@ namespace Scripts.Components.ColiderBased
                 var isInTags = _tags.Any(tag => overlapingResult.CompareTag(tag));
                 if (isInTags)
                 {
-                    Debug.LogError("Fuck");
                     _onCheckOverlap?.Invoke(overlapingResult.gameObject);
                 }
             }

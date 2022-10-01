@@ -6,8 +6,10 @@ namespace Scripts.Components.Movement
 {
     class CircleLevitation : MonoBehaviour
     {
-        [SerializeField] private float _radius;
-        [SerializeField] private float _speed;
+        [SerializeField] 
+        private float _radius;
+        [SerializeField] 
+        private float _speed;
 
         private Rigidbody2D[] _coins;
         private Vector2[] _positions;
@@ -28,25 +30,23 @@ namespace Scripts.Components.Movement
         private void FixedUpdate()
         {
             CalculatePositions();
-            var isAllDead = true;
+            var isAllDestroyed = true;
             for (int i = 0; i < _coins.Length; i++)
             {
                 if (_coins[i])
                 {
                     _coins[i].MovePosition(_positions[i]);
-                    isAllDead = false;
+                    isAllDestroyed = false;
                 }
             }
 
-            if (isAllDead)
+            if (isAllDestroyed)
             {
                 enabled = false;
                 Destroy(gameObject, 1f);
             }
 
             _time += Time.fixedDeltaTime;
-
-
         }
 
         private void CalculatePositions()

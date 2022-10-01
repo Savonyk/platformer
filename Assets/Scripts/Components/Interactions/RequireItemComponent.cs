@@ -7,11 +7,14 @@ namespace Scripts.Components.Interactions
 {
     class RequireItemComponent : MonoBehaviour
     {
-        [SerializeField] private InventoryItemData[] _requiredItems;
-        [SerializeField] private bool _removeAfterUse;
-
-        [SerializeField] private UnityEvent _OnSuccessed;
-        [SerializeField] private UnityEvent _OnFailed;
+        [SerializeField] 
+        private InventoryItemData[] _requiredItems;
+        [SerializeField] 
+        private bool _removeAfterUse;
+        [SerializeField] 
+        private UnityEvent _OnSuccessed;
+        [SerializeField] 
+        private UnityEvent _OnFailed;
 
         public void Check()
         {

@@ -9,8 +9,10 @@ namespace Scripts.UI.Widgets
     [Serializable]
     public class AudioSettingsWidget : MonoBehaviour
     {
-        [SerializeField] private Slider _slider;
-        [SerializeField] private Text _text;
+        [SerializeField] 
+        private Slider _slider;
+        [SerializeField] 
+        private Text _text;
 
         private FloatPersistentProperty _model;
 

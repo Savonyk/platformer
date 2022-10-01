@@ -4,8 +4,10 @@ namespace Scripts.Creatures.Weapon
 {
     class BaseProjectile : MonoBehaviour
     {
-        [SerializeField] private bool _invertX;
-        [SerializeField] private float _speed;
+        [SerializeField] 
+        private bool _invertX;
+        [SerializeField] 
+        private float _speed;
 
         protected Rigidbody2D Rigidbody;
         private int _directionX;

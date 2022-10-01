@@ -8,13 +8,14 @@ namespace Scripts.Components.GameObjectsBased
 {
     public class RandomSpawnerComponent : MonoBehaviour
     {
-        [Header("Spawn bound:")] 
-        [SerializeField] private float _sectorAngle = 60;
-        [SerializeField] private float _sectorRotation;
-
-
-        [SerializeField] private float _waitTime = 0.1f;
-        [SerializeField] private float _speed = 6f;
+        [Header("Spawn bound:")] [SerializeField] 
+        private float _sectorAngle = 60;
+        [SerializeField] 
+        private float _sectorRotation;
+        [SerializeField] 
+        private float _waitTime = 0.1f;
+        [SerializeField] 
+        private float _speed = 6f;
 
         private Coroutine _routine;
 

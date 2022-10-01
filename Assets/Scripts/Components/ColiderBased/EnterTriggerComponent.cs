@@ -7,9 +7,12 @@ namespace Scripts.Components.ColiderBased
 {
     public class EnterTriggerComponent : MonoBehaviour
     {
-        [SerializeField] private LayerMask _layer;
-        [SerializeField] private string _tag = "Player";
-        [SerializeField] private EnterEvent _action;
+        [SerializeField] 
+        private LayerMask _layer;
+        [SerializeField] 
+        private string _tag = "Player";
+        [SerializeField] 
+        private EnterEvent _action;
 
         private void OnTriggerEnter2D(Collider2D collision)
         {

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System;
+using System.Linq;
 
 namespace Scripts.Model.Def
 {
@@ -7,9 +8,10 @@ namespace Scripts.Model.Def
     public class InventoryItemsDefinition : ScriptableObject
     {
 
-        [SerializeField] private ItemDefinition[] _items;
+        [SerializeField] 
+        private ItemDefinition[] _items;
 
-        public ItemDefinition Get(string id)
+        public ItemDefinition GetItem(string id)
         {
             foreach (var item in _items)
             {
@@ -29,11 +31,22 @@ namespace Scripts.Model.Def
     [Serializable]
     public struct ItemDefinition
     {
-        [SerializeField] private string _id;
-        [SerializeField] private bool _isStacked;
+        [SerializeField] 
+        private string _id;
+        [SerializeField] 
+        private ItemTagDefinition[] _tags;
+        [SerializeField] 
+        private Sprite _icon;
 
         public string Id => _id;
-        public bool IsStacked => _isStacked;
+
+        public Sprite Icon => _icon;
+
         public bool IsVoid => string.IsNullOrEmpty(_id);
+
+        public bool HasTag(ItemTagDefinition tag)
+        {
+            return _tags.Contains(tag);
+        }
     }
 }

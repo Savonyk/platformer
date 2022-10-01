@@ -8,12 +8,14 @@ namespace Scripts.Creatures.Mobs.AI
 {
     public class ExplodingAIController : BaseAIController
     {
-        [SerializeField] private float _missingTime = 1.5f;
-        [SerializeField] private SpawnComponent _explosion;
-        [SerializeField] private float _attackSpeed;
+        [SerializeField] 
+        private float _missingTime = 1.5f;
+        [SerializeField] 
+        private SpawnComponent _explosion;
+        [SerializeField] 
+        private float _attackSpeed;
 
         private float _defaultSpeed;
-
         private Patrol _patrol;
 
         protected override void Awake()
@@ -53,7 +55,7 @@ namespace Scripts.Creatures.Mobs.AI
                 else
                 {
                     AIPlayer.Speed = _attackSpeed;
-                    SetDirectionToTarget();
+                    SetDirectionToTarget(GetDirectionToTarget());
                 }
                 yield return null;
             }

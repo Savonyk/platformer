@@ -6,8 +6,10 @@ namespace Scripts.UI.Settings
 {
     class SettingsWindow : AnimatedWindow
     {
-        [SerializeField] private AudioSettingsWidget _music;
-        [SerializeField] private AudioSettingsWidget _sfx;
+        [SerializeField] 
+        private AudioSettingsWidget _music;
+        [SerializeField] 
+        private AudioSettingsWidget _sfx;
 
         protected override void Start()
         {

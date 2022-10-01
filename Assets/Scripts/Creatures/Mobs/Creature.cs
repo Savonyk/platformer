@@ -7,31 +7,35 @@ namespace Scripts.Creatures.Mobs
 {
     public class Creature : MonoBehaviour
     {
-        [SerializeField] private bool _isInvertScale;
-        [SerializeField] private float _speed;
-        [SerializeField] protected float JumpForce;
-        [SerializeField] private float _damageJumpForce;
-        [SerializeField] protected ColiderCheckComponent CheckGround;
-        [SerializeField] protected SpawnComponentList Particles;
-        [SerializeField] private CheckCircleOverlayComponent _attackRange;
-        [SerializeField] protected PlayClipComponent AudioClips;
+        [SerializeField] 
+        private bool _isInvertScale;
+        [SerializeField] 
+        private float _speed;
+        [SerializeField] 
+        protected float JumpForce;
+        [SerializeField] 
+        private float _damageJumpForce;
+        [SerializeField] 
+        protected ColiderCheckComponent CheckGround;
+        [SerializeField] 
+        protected SpawnComponentList Particles;
+        [SerializeField] 
+        private CheckCircleOverlayComponent _attackRange;
+        [SerializeField] 
+        protected PlayClipComponent AudioClips;
 
         protected Animator Animator;
-
         protected Rigidbody2D Rigidbody;
         private Vector2 _direction;
-
         protected bool IsGrounded;
         private bool _isJumping;
-
-        public float Speed { get { return _speed; } set { _speed = value; } }
-
-
         private static readonly int _isRunningKey = Animator.StringToHash("isRunning");
         private static readonly int _isGroundedKey = Animator.StringToHash("isGrounded");
         private static readonly int _verticalVelocityKey = Animator.StringToHash("verticalVelocity");
         private static readonly int _HitKey = Animator.StringToHash("hit");
         private static readonly int _AttackKey = Animator.StringToHash("attack");
+
+        public float Speed { get => _speed; set => _speed = value;  }
 
         public Rigidbody2D GetRigidbody => Rigidbody;
 
@@ -53,7 +57,6 @@ namespace Scripts.Creatures.Mobs
             var xVelocity = _direction.x * _speed;
             var yVelocity = CalculateYVelocity();
 
-
             Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
 
             Animator.SetBool(_isRunningKey, Rigidbody.velocity.x != 0);
@@ -61,7 +64,6 @@ namespace Scripts.Creatures.Mobs
             Animator.SetFloat(_verticalVelocityKey, Rigidbody.velocity.y);
 
             UpdateSrpiteDirection(_direction);
-
         }
 
         protected virtual float CalculateYVelocity()
@@ -87,7 +89,6 @@ namespace Scripts.Creatures.Mobs
 
                 yVelocity *= 0.5f;
             }
-
             return yVelocity;
         }
 
@@ -118,7 +119,6 @@ namespace Scripts.Creatures.Mobs
             else if (direction.x < 0)
             {
                 transform.localScale = new Vector3(modifier  * - 1, 1, 0);
-
             }
         }
 

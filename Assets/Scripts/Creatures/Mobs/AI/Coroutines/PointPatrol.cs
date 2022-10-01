@@ -5,8 +5,10 @@ namespace Scripts.Creatures.Mobs.AI.Coroutines
 {
     public class PointPatrol : Patrol
     {
-        [SerializeField] private Transform[] _points;
-        [SerializeField] private float _destinationTreshold = 1f;
+        [SerializeField] 
+        private Transform[] _points;
+        [SerializeField] 
+        private float _destinationTreshold = 1f;
 
         private int _destinationPointIndex;
         private Creature _AIPlayer;

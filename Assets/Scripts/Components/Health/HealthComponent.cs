@@ -6,13 +6,17 @@ namespace Scripts.Components.Health
 {
     public class HealthComponent : MonoBehaviour
     {
-        [SerializeField] private int _health;
-        [SerializeField] private UnityEvent _onDamage;
-        [SerializeField] private UnityEvent _onHeal;
-        [SerializeField] ChangeHealthEvent _onChange;
+        [SerializeField] 
+        private int _health;
+        [SerializeField] 
+        private UnityEvent _onDamage;
+        [SerializeField] 
+        private UnityEvent _onHeal;
 
+
+        public ChangeHealthEvent _onChange;
         public UnityEvent _onDeath;
-        public int Health { get { return _health; } set { _health = value; } }
+        public int Health { get => _health; set => _health = value; }
 
         public void ModifyHealth(int healthDelta)
         {

@@ -422,6 +422,7 @@ MonoBehaviour:
     _time: 2
   _swordsThrowCount: 3
   _superThrowDelay: 0.8
+  _throwSpawner: {fileID: 291165667}
   _hitDrop: {fileID: 1846684378982285354}
   _armed: {fileID: 9100000, guid: bdb7145b10c4ef9428444c4759f2c4b7, type: 2}
   _unarmed: {fileID: 9100000, guid: efeff0b4e2f1ada48a2570f3d5a5c2aa, type: 2}
@@ -517,7 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6008c637328fd34f894ffb18b775d25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 2
+  _health: 10
   _onDamage:
     m_PersistentCalls:
       m_Calls:
@@ -709,7 +710,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 5729727954723866324}
         m_TargetAssemblyTypeName: Scripts.Creatures.Hero.HeroInputReader, Assembly-CSharp
-        m_MethodName: OnPaused
+        m_MethodName: OnPause
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -721,6 +722,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 7bc43a80-7866-4c26-9e18-c0327006fb31
     m_ActionName: Hero/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5729727954723866324}
+        m_TargetAssemblyTypeName: Scripts.Creatures.Hero.HeroInputReader, Assembly-CSharp
+        m_MethodName: OnNextItem
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 19e13fc4-cbb9-46c4-80ad-8d1a9b9b3e60
+    m_ActionName: Hero/NextItem[/Keyboard/q]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Hero

@@ -9,47 +9,63 @@ using Scripts.Components.LevelManagment;
 using Scripts.Components.Health;
 using System.Collections;
 using Scripts.Model.Data;
-using UnityEngine.SceneManagement;
-using Cinemachine;
+using Scripts.Model.Def;
 
 namespace Scripts.Creatures.Hero
 {
 
     public class Hero : Creature, ICanAddInInventory
     {
-        [Header("Checkers")]
-        [SerializeField] private ColiderCheckComponent _wallChecker;
-
-        [SerializeField] private CheckCircleOverlayComponent _interactionChecker;
-
-        [Header("Throwing")]
-        [SerializeField] private ResetComponent _throwCoolDown;
-        [SerializeField] private ResetComponent _superTrowCoolDown;
-        [SerializeField] private int _swordsThrowCount;
-        [SerializeField] private float _superThrowDelay;
-
-
-        [Header("Particles")]
-        [SerializeField] private DropByProbabilityComponent _hitDrop;
-
-        [Header("Animators")]
-        [SerializeField] private AnimatorController _armed;
-        [SerializeField] private AnimatorController _unarmed;
+        [Header("Checkers")]  [SerializeField] 
+        private ColiderCheckComponent _wallChecker;
+        [SerializeField] 
+        private CheckCircleOverlayComponent _interactionChecker;
+        [Header("Throwing")] [SerializeField] 
+        private ResetComponent _throwCoolDown;
+        [SerializeField] 
+        private ResetComponent _superTrowCoolDown;
+        [SerializeField] 
+        private int _swordsThrowCount;
+        [SerializeField] 
+        private float _superThrowDelay;
+        [SerializeField] 
+        private SpawnComponent _throwSpawner;
+        [Header("Particles")] [SerializeField] 
+        private DropByProbabilityComponent _hitDrop;
+        [Header("Animators")] [SerializeField] 
+        private AnimatorController _armed;
+        [SerializeField] 
+        private AnimatorController _unarmed;
 
         private float _defaultGravityForce;
         private bool _isAllowingDoubleJump;
         private bool _isRepluseToWall;
         private bool _isSuperThrow;
-
         private GameSession _currentSession;
         private HealthComponent _healthComponent;
-
         private readonly static int _ThrowKey = Animator.StringToHash("throw");
         private readonly static int _IsOnWallKey = Animator.StringToHash("isOnWall");
+        private const string SwordId = "Sword";
 
         private int CoinsCount => _currentSession.Data.Inventory.ItemCount("Coin");
-        private int SwordsCount => _currentSession.Data.Inventory.ItemCount("Sword");
+        private string SelectedItemId => _currentSession.QuickInventory.SelectedItem.Id;
+        private int SwordsCount => _currentSession.Data.Inventory.ItemCount(SwordId);
 
+        private bool CanCurrentItemThrow
+        {
+            get
+            {
+                if (SelectedItemId == SwordId)
+                {
+                    return SwordsCount > 1;
+                }
+
+                var itemDefinition = DefinitionFacade.Instance.Items.GetItem(
+                    _currentSession.QuickInventory.SelectedItem.Id);
+
+                return itemDefinition.HasTag(ItemTagDefinition.Throwable);
+            }
+        }
         protected override void Awake()
         {
             base.Awake();
@@ -88,7 +104,7 @@ namespace Scripts.Creatures.Hero
 
         private void OnInventoryChanged(string id, int value)
         {
-            if(id == "Sword")
+            if(id == SwordId)
             {
                 UpdateHeroWeapon();
             }
@@ -130,9 +146,6 @@ namespace Scripts.Creatures.Hero
 
             return base.CalculateJumpVelocity(yVelocity);
         }
-
-       
-
         private bool IsOnWall()
         {
             return _wallChecker.IsTouching;
@@ -197,7 +210,7 @@ namespace Scripts.Creatures.Hero
 
         public void PerformTrowing()
         {
-            if (SwordsCount <= 1 || !_throwCoolDown.IsReady) return;
+            if (!CanCurrentItemThrow|| !_throwCoolDown.IsReady) return;
 
             if (_superTrowCoolDown.IsReady)
             {
@@ -213,7 +226,9 @@ namespace Scripts.Creatures.Hero
         {
             if (_isSuperThrow)
             {
-                var numThrows = Mathf.Min(_swordsThrowCount, SwordsCount - 1);
+                var throwableCount = _currentSession.Data.Inventory.ItemCount(SelectedItemId);
+                var possibleCount = SelectedItemId == SwordId ? throwableCount - 1 : throwableCount;
+                var numThrows = Mathf.Min(_swordsThrowCount, possibleCount);
                 StartCoroutine(Co_SuperThrow(numThrows));
             }
             else
@@ -234,8 +249,14 @@ namespace Scripts.Creatures.Hero
 
         private void ThrowAndRemoveFromInventory()
         {
-            Particles.Spawn("Throw");
-            _currentSession.Data.Inventory.Remove("Sword", 1);
+            AudioClips.Play("Range");
+            var currentItemId = _currentSession.QuickInventory.SelectedItem.Id;
+            var currentItem = DefinitionFacade.Instance.ThrowableItems.GetItem(currentItemId);
+
+            _throwSpawner.SetPrefab(currentItem.Projectile);
+            _throwSpawner.Spawn();
+            _currentSession.Data.Inventory.Remove(currentItemId, 1);
+ 
         }
 
         private void UpdateHeroWeapon()
@@ -255,6 +276,16 @@ namespace Scripts.Creatures.Hero
         public void ChangeHealth(int health)
         {
             _currentSession.Data.Health.Value = health;
+        }
+
+        public void NextItem()
+        {
+            _currentSession.QuickInventory.SetNextItem();
+        }
+
+        public void OnPerformedPause()
+        {
+            OpenWindowUtils.CreateWindow("UI/PauseWindow");
         }
     }
 }

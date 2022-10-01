@@ -6,9 +6,12 @@ namespace Scripts.Creatures.Mobs.AI
 {
     public abstract class BaseAIController : MonoBehaviour
     {
-        [SerializeField] protected ColiderCheckComponent Vision;
-        [SerializeField] protected ColiderCheckComponent CanAttack;
-        [SerializeField] protected float AttackCoolDown = 2;
+        [SerializeField] 
+        protected ColiderCheckComponent Vision;
+        [SerializeField] 
+        protected ColiderCheckComponent CanAttack;
+        [SerializeField] 
+        protected float AttackCoolDown = 2;
 
         protected IEnumerator CurrentCoroutine;
         private static readonly int _isDeadKey = Animator.StringToHash("isDead");
@@ -59,9 +62,9 @@ namespace Scripts.Creatures.Mobs.AI
             return direction.normalized;
         }
 
-        protected void SetDirectionToTarget()
+        protected void SetDirectionToTarget(Vector2 direction)
         {
-            AIPlayer.Direction = GetDirectionToTarget();
+            AIPlayer.Direction = direction;
         }
     }
 }

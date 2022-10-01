@@ -7,8 +7,10 @@ namespace Scripts.Components.Collactable
 {
     public class InventoryAddComponent : MonoBehaviour
     {
-        [StringInventoryItem] [SerializeField] private string _id;
-        [SerializeField] private int _value;
+        [StringInventoryItem] [SerializeField] 
+        private string _id;
+        [SerializeField] 
+        private int _value;
 
         public void Add(GameObject target)
         {

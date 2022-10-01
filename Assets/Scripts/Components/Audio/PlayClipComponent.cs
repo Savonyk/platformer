@@ -6,7 +6,9 @@ namespace Scripts.Components.Audio
 {
     public class PlayClipComponent : MonoBehaviour
     {
-        [SerializeField] private SoundData[] _sounds;
+        [SerializeField] 
+        private SoundData[] _sounds;
+
         private AudioSource _source;
 
         public void Play(string id)
@@ -31,8 +33,10 @@ namespace Scripts.Components.Audio
     [Serializable]
     public class SoundData
     {
-        [SerializeField] private string _id;
-        [SerializeField] private AudioClip _clip;
+        [SerializeField] 
+        private string _id;
+        [SerializeField] 
+        private AudioClip _clip;
 
         public string Id => _id;
         public AudioClip Clip => _clip;

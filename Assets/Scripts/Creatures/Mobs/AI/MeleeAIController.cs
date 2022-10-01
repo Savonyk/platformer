@@ -5,14 +5,17 @@ using Scripts.Components.GameObjectsBased;
 
 namespace Scripts.Creatures.Mobs.AI 
 {
-
     public class MeleeAIController : BaseAIController
     {
 
-        [SerializeField] private SpawnComponentList _particles;
-
-        [SerializeField] private float _alarmDelay = 1.5f;
-        [SerializeField] private float _missingTime = 1.5f;
+        [SerializeField] 
+        private SpawnComponentList _particles;
+        [SerializeField] 
+        private float _alarmDelay = 1.5f;
+        [SerializeField] 
+        private float _missingTime = 1.5f;
+        [SerializeField]
+        private float _thresholdByX = 0.2f;
 
         private Patrol _patrol;
 
@@ -60,7 +63,10 @@ namespace Scripts.Creatures.Mobs.AI
                 }
                 else
                 {
-                    SetDirectionToTarget();
+                    var directionX = Target.transform.position.x - transform.position.x;
+                    var directionToTarget = directionX <= _thresholdByX ? Vector2.zero : GetDirectionToTarget();
+                    SetDirectionToTarget(directionToTarget);
+     
                 }
                 yield return null;
             }

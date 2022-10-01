@@ -7,7 +7,8 @@ namespace Scripts.Components.LevelManagment
 {
     public class TimerComponent : MonoBehaviour
     {
-        [SerializeField] private TimerData[] _timers;
+        [SerializeField] 
+        private TimerData[] _timers;
 
         public void SetTimer(int index)
         {
@@ -24,8 +25,10 @@ namespace Scripts.Components.LevelManagment
         [Serializable]
         public class TimerData
         {
-            [SerializeField] private float _delay;
-            [SerializeField] private UnityEvent _onTimesUp;
+            [SerializeField] 
+            private float _delay;
+            [SerializeField] 
+            private UnityEvent _onTimesUp;
 
             public float Delay { get { return _delay; } set { _delay = value; } }
             public UnityEvent OnTimesUp { get { return _onTimesUp; } set { _onTimesUp = value; } }

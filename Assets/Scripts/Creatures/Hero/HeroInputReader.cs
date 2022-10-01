@@ -1,12 +1,13 @@
 using UnityEngine.InputSystem;
 using UnityEngine;
-using Scripts.Creatures;
+using Scripts.Utils;
 
 namespace Scripts.Creatures.Hero
 {
     public class HeroInputReader : MonoBehaviour
     {
-        [SerializeField] private Hero _character;
+        [SerializeField] 
+        private Hero _character;
 
         private HeroInputActions inputs;
 
@@ -65,6 +66,22 @@ namespace Scripts.Creatures.Hero
             if (context.performed)
             {
                 _character.UseCurrentItem();
+            }
+        }
+
+        public void OnNextItem(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _character.NextItem();
+            }
+        }
+
+        public void OnPause(InputAction.CallbackContext context)
+        {
+            if (context.performed)
+            {
+                _character.OnPerformedPause();
             }
         }
     }

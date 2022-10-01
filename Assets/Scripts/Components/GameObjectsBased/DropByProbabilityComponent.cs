@@ -9,10 +9,14 @@ namespace Scripts.Components.GameObjectsBased
 {
     public class DropByProbabilityComponent : MonoBehaviour
     {
-        [SerializeField] private int _count;
-        [SerializeField] private DropData[] _dropedItems;
-        [SerializeField] private DropItemEvent _onDropItems;
-        [SerializeField] private bool _spawnOnEnable;
+        [SerializeField] 
+        private int _count;
+        [SerializeField] 
+        private DropData[] _dropedItems;
+        [SerializeField] 
+        private DropItemEvent _onDropItems;
+        [SerializeField] 
+        private bool _spawnOnEnable;
 
         private void OnEnable()
         {
@@ -52,8 +56,10 @@ namespace Scripts.Components.GameObjectsBased
         [Serializable]
         public class DropData
         {
-            [SerializeField] private GameObject _item;
-            [Range(0f, 100f)] [SerializeField] private float _probability;
+            [SerializeField] 
+            private GameObject _item;
+            [Range(0f, 100f)] [SerializeField] 
+            private float _probability;
 
             public GameObject Item { get { return _item; } set { _item = value; } }
             public float Probability { get { return _probability; } set { _probability = value; } }

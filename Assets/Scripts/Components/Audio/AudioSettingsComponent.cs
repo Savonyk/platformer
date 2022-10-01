@@ -8,7 +8,8 @@ namespace Scripts.Components.Audio
     [RequireComponent(typeof(AudioSource))]
     public class AudioSettingsComponent : MonoBehaviour
     {
-        [SerializeField] private SoundSettings _mode;
+        [SerializeField] 
+        private SoundSettings _mode;
 
         private FloatPersistentProperty _model;
         private AudioSource _source;

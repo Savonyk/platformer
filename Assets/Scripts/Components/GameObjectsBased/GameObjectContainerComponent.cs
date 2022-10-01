@@ -4,8 +4,10 @@ namespace Scripts.Components.GameObjectsBased
 {
     class GameObjectContainerComponent : MonoBehaviour
     {
-        [SerializeField] private GameObject[] _objects;
-        [SerializeField] private DropItemEvent _onDropItems;
+        [SerializeField] 
+        private GameObject[] _objects;
+        [SerializeField]
+        private DropItemEvent _onDropItems;
 
         public void Drop()
         {

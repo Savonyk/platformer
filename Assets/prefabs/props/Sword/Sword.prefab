@@ -159,7 +159,7 @@ MonoBehaviour:
       - m_Target: {fileID: 562276549711908145}
         m_TargetAssemblyTypeName: Scripts.Components.Collactable.InventoryAddComponent,
           Assembly-CSharp
-        m_MethodName: TryToAdd
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -183,25 +183,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Sword
   _value: 1
-  _OnSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 562276549711908158}
-        m_TargetAssemblyTypeName: Scripts.Components.GameObjectBased.DestroyObjectComponent,
-          Assembly-CSharp
-        m_MethodName: OnDestroyObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  _OnFail:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &562276549711908158
 MonoBehaviour:
   m_ObjectHideFlags: 0

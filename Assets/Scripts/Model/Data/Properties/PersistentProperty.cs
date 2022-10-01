@@ -6,7 +6,6 @@ namespace Scripts.Model.Data.Properties
 {
     public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {
-
         private readonly TPropertyType _defaultValue;
         private TPropertyType _stored;
 
@@ -28,7 +27,7 @@ namespace Scripts.Model.Data.Properties
                 Write(value);
                 _stored = _value = value;
 
-                InvokeChangeedEvent(_value, oldValue);
+                InvokeChangedEvent(_value, oldValue);
             }
         }
 
