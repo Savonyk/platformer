@@ -3,7 +3,7 @@ using Scripts.Utils;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Scripts.UI.Pause
+namespace Scripts.UI.Windows
 {
     public class PauseWindow : AnimatedWindow
     {

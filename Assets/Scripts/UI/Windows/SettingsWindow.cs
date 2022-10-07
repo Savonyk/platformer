@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 using Scripts.Model.Data;
 using Scripts.UI.Widgets;
+using Scripts.Utils;
 
-namespace Scripts.UI.Settings
+namespace Scripts.UI.Windows
 {
     class SettingsWindow : AnimatedWindow
     {
@@ -17,6 +18,11 @@ namespace Scripts.UI.Settings
 
             _music.SetModel(GameSettings.Instance.Music);
             _sfx.SetModel(GameSettings.Instance.SFX);
+        }
+
+        public void ChangeLanguage()
+        {
+            OpenWindowUtils.CreateWindow("UI/LocalizationWindow");
         }
     }
 }

@@ -1,0 +1,15 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: _doptionDialogController
+  m_Controller: {fileID: 9100000, guid: d0e702d50e44f6843afef75bc789fd88, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5bfa1e43cfa3f974b91ac9203a5a8a36, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 64d71b490d110f74ebde1c4703a51959, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7d29a230997b5124eb9e2fe96faeb9d0, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4e2926462e3cc6945980b0c1d743ec14, type: 2}

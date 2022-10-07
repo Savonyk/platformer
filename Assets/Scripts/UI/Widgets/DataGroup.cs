@@ -24,6 +24,11 @@ namespace Scripts.UI.Widgets
             HideUnusedItems(data);
         }
 
+        internal void SetData(object compositeData)
+        {
+            throw new System.NotImplementedException();
+        }
+
         private void CreateRequiredItems(IList<TDataType> data)
         {
             for (int i = _createdItems.Count; i < data.Count; i++)
