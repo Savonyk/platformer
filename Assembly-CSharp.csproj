@@ -157,6 +157,8 @@
     <Compile Include="Assets\Scripts\Utils\Disposables\ActionDisposable.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\DropByProbabilityComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\LocaleItemWidget.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManagment\CheckPointComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManagment\SetFollowComponent.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

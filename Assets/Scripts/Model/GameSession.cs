@@ -1,17 +1,22 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using Scripts.Model.Data;
 using Scripts.Utils.Disposables;
-using UnityEngine.SceneManagement;
+using Scripts.Components.LevelManagment;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Scripts.Model
 {
     class GameSession : MonoBehaviour
     {
-
-       [SerializeField] 
+        [SerializeField]
+        private string _defaultCheckpointId;
+        [SerializeField] 
         private PlayerData _data;
 
         private PlayerData _savedData;
+        private List<string> _checkPoints = new ();
         private readonly CompositeDisposable _trash = new ();
 
         public PlayerData Data => _data;
@@ -19,9 +24,9 @@ namespace Scripts.Model
 
         private void Awake()
         {
-            LoadHUD();
-            if (IsSessionExit())
+            if (TryGetExistingSession(out GameSession existedSession))
             {
+                existedSession.StartSession(_defaultCheckpointId);
                 Destroy(gameObject);
             }
             else
@@ -29,17 +34,55 @@ namespace Scripts.Model
                 Save();
                 InitInventoryModels();
                 DontDestroyOnLoad(this);
+                StartSession(_defaultCheckpointId);
             }
         }
+
+        private bool TryGetExistingSession(out GameSession savedSession)
+        {
+            var sessions = FindObjectsOfType<GameSession>();
+            foreach (var session in sessions)
+            {
+                if (session != this)
+                {
+                    savedSession = session;
+                    return true;
+                }
+            }
+            savedSession = null;
+            return false;
+        }
+
+        private void StartSession(string defaultCheckPointId)
+        {
+            SetChecked(defaultCheckPointId);
+            LoadHUD();
+            SpawnHero();
+        }
+
+        public void Save()
+        {
+            _savedData = _data.Clone();
+        }
+
 
         private void LoadHUD()
         {
             SceneManager.LoadScene("HUD", LoadSceneMode.Additive);
         }
 
-        public void Save()
+        private void SpawnHero()
         {
-            _savedData = _data.Clone();
+            var checkPoints = FindObjectsOfType<CheckPointComponent>();
+            var lastCheckPoint = _checkPoints.Last();
+            foreach (var checkPoint in checkPoints)
+            {
+                if(checkPoint.Id == lastCheckPoint)
+                {
+                    checkPoint.SpawnHero();
+                    break;
+                }
+            }
         }
 
         private void InitInventoryModels()
@@ -48,21 +91,25 @@ namespace Scripts.Model
             _trash.Retain(QuickInventory);
         }
 
-        private bool IsSessionExit()
-        {
-            var sessions = FindObjectsOfType<GameSession>();
-            foreach (var session in sessions)
-            {
-                if (session != this) return true;
-            }
-            return false;
-        }
-
         public void LoadLastSave()
         {
             _trash.Dispose();
             InitInventoryModels();
             _data = _savedData.Clone();
+        }
+
+        public bool IsChecked(string id)
+        {
+            return _checkPoints.Contains(id);
+        }
+
+        public void SetChecked(string id)
+        {
+            if (IsChecked(id)) return;
+
+            _checkPoints.Add(id);
+             Save();
+
         }
 
         private void OnDestroy()
