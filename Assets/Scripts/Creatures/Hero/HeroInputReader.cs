@@ -9,24 +9,6 @@ namespace Scripts.Creatures.Hero
         [SerializeField] 
         private Hero _character;
 
-        private HeroInputActions inputs;
-
-        private void Awake()
-        {
-            inputs = new HeroInputActions();
-        }
-
-        private void OnEnable()
-        {
-            inputs.Enable();
-        }
-
-        private void OnDisable()
-        {
-            inputs.Disable();
-           
-        }
-
         public void OnMovevemnt(InputAction.CallbackContext context)
         {
 

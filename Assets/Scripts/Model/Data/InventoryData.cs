@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 using Scripts.Model.Def;
-using System.Linq;
+using Scripts.Model.Def.Repository;
+using Scripts.Model.Def.Repository.Items;
 
 namespace Scripts.Model.Data
 {
@@ -152,6 +154,31 @@ namespace Scripts.Model.Data
             }
 
             return returnedValue.ToArray();
+        }
+
+        public bool IsEnoughResources(params ItemWithCount[] items)
+        {
+            var joined = new Dictionary<string, int>();
+
+            foreach (var item in items)
+            {
+                if (joined.ContainsKey(item.ItemId))
+                {
+                    joined[item.ItemId] += item.Count;
+                }
+                else
+                {
+                    joined.Add(item.ItemId, item.Count);
+                }
+            }
+
+            foreach (var item in joined)
+            {
+                var count = ItemCount(item.Key);
+                if (count < item.Value) return false;
+            }
+
+            return true;
         }
 
     }

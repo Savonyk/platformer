@@ -57,15 +57,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Components\Dialogs\ShowDialogComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Def\ItemTagDefinition.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\ItemTagDefinition.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\OptionItemWidget.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\BaseAIController.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\PerksModel.cs" />
     <Compile Include="Assets\Scripts\Model\GameSession.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapon\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\Health\RadialModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\SpawnComponentList.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\DoInteractionComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Windows\SettingsWindow.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\Items\PotionRepository.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\FloatPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\Dialogs\DialogBoxController.cs" />
     <Compile Include="Assets\Scripts\Creatures\Hero\HeroInputReader.cs" />
@@ -74,16 +76,23 @@
     <Compile Include="Assets\Scripts\Components\Movement\CircleLevitation.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\ColiderCheckComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\Properties\StringObservableProperty.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\PrefsPersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Model\Data\ICanAddInInventory.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManagment\SetFollowComponent.cs" />
+    <Compile Include="Assets\Scripts\Components\Effects\ParalaxEffect.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\PerksWidget.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapon\Projectile.cs" />
     <Compile Include="Assets\Scripts\Model\Def\Localization\LocalizationManager.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\PerksData.cs" />
     <Compile Include="Assets\Scripts\Model\Def\DialogDefinition.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\PlaySfxClipComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\SpawnUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\Windows\ManagePerksWindow.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\Creature.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\GameObjectContainerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\InteractableComponent.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\ActivePerks\ActivePerksWidget.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\EnterColisionComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\LayerCheckComponent.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\Trap.cs" />
@@ -96,14 +105,15 @@
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\StationaryAIController.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ProgressBarWidget.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\AudioSettingsWidget.cs" />
-    <Compile Include="Assets\Scripts\Model\Def\InventoryItemsDefinition.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManagment\CheckPointComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\Items\ItemsRepository.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\CustomButton.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\Dialogs\OptionalDialogController.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\StringPersistentPropert.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManagment\TimerComponent.cs" />
     <Compile Include="Assets\Scripts\Components\CutScenes\CameraStateController.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\CheckCircleOverlayComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Def\ThrowableItemsDefinition.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\Items\ThrowableIRepository.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManagment\ReloadLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Components\CutScenes\ShowTargetComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Windows\AnimatedWindow.cs" />
@@ -112,11 +122,14 @@
     <Compile Include="Assets\Scripts\Components\LevelManagment\ExitLevelComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Def\DefinitionFacade.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\EnemyProgressBarWidget.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\Items\RepositoryDefinition.cs" />
+    <Compile Include="Assets\Scripts\UI\HUD\ActivePerks\ActivePerksController.cs" />
     <Compile Include="Assets\Scripts\UI\Windows\LocalizationWindow.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\RandomSpawnerComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\Disposables\UnityEventExtensions.cs" />
     <Compile Include="Assets\Scripts\Creatures\Hero\Hero.cs" />
     <Compile Include="Assets\Scripts\Utils\OpenWindowUtils.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\PriceItemWidget.cs" />
     <Compile Include="Assets\Scripts\Model\Data\DialogData.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\LineCastCheckComponent.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\Coroutines\Patrol.cs" />
@@ -129,6 +142,7 @@
     <Compile Include="Assets\Scripts\Model\Data\QuickInventoryModel.cs" />
     <Compile Include="Assets\Scripts\Components\Collactable\CollectorComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\GameSettings.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\PredefinedDataGroup.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\Coroutines\PlatformPatrol.cs" />
     <Compile Include="Assets\Scripts\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\PlayClipComponent.cs" />
@@ -137,6 +151,7 @@
     <Compile Include="Assets\Scripts\UI\Windows\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\QuickInventory\InventoryItemWidget.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Repository\Items\PerkRepository.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\DataGroup.cs" />
     <Compile Include="Assets\Scripts\Utils\Disposables\CompositeDisposable.cs" />
     <Compile Include="Assets\Scripts\Model\Def\Localization\LocaleDefinition.cs" />
@@ -146,6 +161,7 @@
     <Compile Include="Assets\Scripts\Components\LevelManagment\ResetComponent.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManagment\TrapsManager.cs" />
     <Compile Include="Assets\UserInputs\HeroInputActions.cs" />
+    <Compile Include="Assets\Scripts\Components\LevelManagment\ShowWindowComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\IntObservableProperty.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ButtonSound.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\RequireItemComponent.cs" />
@@ -157,8 +173,7 @@
     <Compile Include="Assets\Scripts\Utils\Disposables\ActionDisposable.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\DropByProbabilityComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\LocaleItemWidget.cs" />
-    <Compile Include="Assets\Scripts\Components\LevelManagment\CheckPointComponent.cs" />
-    <Compile Include="Assets\Scripts\Components\LevelManagment\SetFollowComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\IHaveId.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

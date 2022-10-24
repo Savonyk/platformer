@@ -5,7 +5,7 @@ namespace Scripts.UI.Widgets
 {
     public class DataGroup<TDataType, TItemType> where TItemType : MonoBehaviour, IItemRenderer<TDataType>
     {
-        private List<TItemType> _createdItems = new();
+        protected readonly List<TItemType> CreatedItems = new();
         private readonly TItemType _prefab;
         private readonly Transform _container;
 
@@ -15,7 +15,7 @@ namespace Scripts.UI.Widgets
             _container = container;
         }
 
-        public void SetData(IList<TDataType> data)
+        public virtual void SetData(IList<TDataType> data)
         {
             CreateRequiredItems(data);
 
@@ -31,10 +31,10 @@ namespace Scripts.UI.Widgets
 
         private void CreateRequiredItems(IList<TDataType> data)
         {
-            for (int i = _createdItems.Count; i < data.Count; i++)
+            for (int i = CreatedItems.Count; i < data.Count; i++)
             {
                 var item = Object.Instantiate(_prefab, _container);
-                _createdItems.Add(item);
+                CreatedItems.Add(item);
             }
         }
 
@@ -42,16 +42,16 @@ namespace Scripts.UI.Widgets
         {
             for (int i = 0; i < data.Count; i++)
             {
-                _createdItems[i].SetData(data[i], i);
-                _createdItems[i].gameObject.SetActive(true);
+                CreatedItems[i].SetData(data[i], i);
+                CreatedItems[i].gameObject.SetActive(true);
             }
         }
 
         private void HideUnusedItems(IList<TDataType> data)
         {
-            for (int i = data.Count; i < _createdItems.Count; i++)
+            for (int i = data.Count; i < CreatedItems.Count; i++)
             {
-                _createdItems[i].gameObject.SetActive(false);
+                CreatedItems[i].gameObject.SetActive(false);
             }
         }
     }

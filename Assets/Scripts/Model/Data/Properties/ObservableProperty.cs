@@ -33,7 +33,9 @@ namespace Scripts.Model.Data.Properties
 
             set
             {
-                var isEqual = _value.Equals(value);
+                if (value == null) return;
+
+                var isEqual = value.Equals(_value);
                 if (isEqual) return;
 
                 var oldValue = _value;

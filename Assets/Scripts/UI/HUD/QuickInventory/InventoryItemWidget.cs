@@ -5,6 +5,7 @@ using Scripts.Model;
 using Scripts.Model.Data;
 using Scripts.Model.Def;
 using Scripts.UI.Widgets;
+using Scripts.Model.Def.Repository;
 
 namespace Scripts.UI.HUD.QuickInventory
 {

@@ -12,16 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bb2a09bd25d05e47b32f79c54f33729, type: 3}
   m_Name: InventorryItems
   m_EditorClassIdentifier: 
-  _items:
+  Collection:
   - _id: Coin
     _tags: 00000000
     _icon: {fileID: 1678995159, guid: 9d2c31a90e20fa648b1aa6756a142bb5, type: 3}
+  - _id: SmallHealthPotion
+    _tags: 0100000003000000
+    _icon: {fileID: -1513787492, guid: 3be3857c555f80847a498b1db96d0b39, type: 3}
+  - _id: BigHealthPotion
+    _tags: 0100000003000000
+    _icon: {fileID: -159523699, guid: 3be3857c555f80847a498b1db96d0b39, type: 3}
   - _id: Sword
-    _tags: 020000000000000001000000
+    _tags: 000000000200000001000000
     _icon: {fileID: 21300000, guid: cc226af9e9b94f94cb3d34055a3ba42e, type: 3}
+  - _id: SpeedUpPotion
+    _tags: 000000000200000003000000
+    _icon: {fileID: 2026953117, guid: 3be3857c555f80847a498b1db96d0b39, type: 3}
+  - _id: GreenGem
+    _tags: 00000000
+    _icon: {fileID: -134929565, guid: b6dcf07070723664ea44ac29c5b5043e, type: 3}
   - _id: Key
     _tags: 01000000
     _icon: {fileID: 21300000, guid: 99d6e825f34343b48ae837d9d38d5a2b, type: 3}
-  - _id: HealthPotion
-    _tags: 01000000
-    _icon: {fileID: -1513787492, guid: 3be3857c555f80847a498b1db96d0b39, type: 3}

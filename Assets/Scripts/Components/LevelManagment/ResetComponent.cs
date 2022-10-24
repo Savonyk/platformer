@@ -12,6 +12,8 @@ namespace Scripts.Components.LevelManagment
         private float _currentTime;
 
         public bool IsReady => Time.time >= _currentTime;
+        public float RemainingTime => _currentTime - Time.time;
+
         public void Reset()
         {
             _currentTime = Time.time + _time;

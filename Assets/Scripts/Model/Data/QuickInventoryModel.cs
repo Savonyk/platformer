@@ -1,8 +1,10 @@
-﻿using Scripts.Model.Data.Properties;
+﻿using System;
 using UnityEngine;
 using Scripts.Model.Def;
-using System;
 using Scripts.Utils.Disposables;
+using Scripts.Model.Def.Repository;
+using Scripts.Model.Data.Properties;
+using Scripts.Model.Def.Repository.Items;
 
 namespace Scripts.Model.Data
 {
@@ -14,7 +16,16 @@ namespace Scripts.Model.Data
 
         public InventoryItemData[] Inventory { get; private set; }
 
-        public InventoryItemData SelectedItem => Inventory[SelectedIndex.Value];
+        public InventoryItemData SelectedItem
+        {
+            get
+            {
+                return (Inventory.Length > 0 && Inventory.Length > SelectedIndex.Value) ?
+                    Inventory[SelectedIndex.Value] : null;
+            }
+        }
+
+        public ItemDefinition SelectedDefinition => DefinitionFacade.Instance.Items.GetItem(SelectedItem?.Id);
 
         public event Action OnChanged;
 

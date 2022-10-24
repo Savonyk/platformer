@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Scripts.Model.Def.Repository.Items;
 
 namespace Scripts.Model.Def
 {
@@ -6,15 +7,21 @@ namespace Scripts.Model.Def
     public class DefinitionFacade : ScriptableObject
     {
         [SerializeField] 
-        private InventoryItemsDefinition _items;
+        private ItemsRepository _items;
         [SerializeField] 
         private PlayerDefinition _player;
         [SerializeField] 
-        private ThrowableItemsDefinition _throwableItems;
+        private ThrowableIRepository _throwableItems;
+        [SerializeField]
+        private PotionRepository _potions;
+        [SerializeField]
+        private PerkRepository _perks;
 
-        public InventoryItemsDefinition Items => _items;
+        public ItemsRepository Items => _items;
         public PlayerDefinition Player => _player;
-        public ThrowableItemsDefinition ThrowableItems => _throwableItems;
+        public ThrowableIRepository ThrowableItems => _throwableItems;
+        public PotionRepository Potions => _potions;
+        public PerkRepository Perks => _perks;
 
         private static DefinitionFacade _instance;
 

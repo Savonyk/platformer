@@ -9,8 +9,11 @@ namespace Scripts.Model.Def
         private int _inventorySize;
         [SerializeField] 
         private int _maxHealth;
+        [SerializeField]
+        private int _maxPerksCount;
 
         public int InventorySize => _inventorySize;
         public int MaxHealth => _maxHealth;
+        public int MaxPerksCount => _maxPerksCount;
     }
 }

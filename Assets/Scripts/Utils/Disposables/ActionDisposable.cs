@@ -14,7 +14,7 @@ namespace Scripts.Utils.Disposables
 
         public void Dispose()
         {
-            _onDispose?.Invoke();
+            _onDispose.Invoke();
             _onDispose = null;
         }
     }

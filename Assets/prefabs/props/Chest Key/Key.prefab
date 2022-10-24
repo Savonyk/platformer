@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4343146993799351935}
   - component: {fileID: 4343146993799351932}
   - component: {fileID: 4343146993799351933}
+  - component: {fileID: 6213536467522787106}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -183,7 +184,7 @@ MonoBehaviour:
       - m_Target: {fileID: 4343146993799351932}
         m_TargetAssemblyTypeName: Scripts.Components.Collactable.InventoryAddComponent,
           Assembly-CSharp
-        m_MethodName: TryToAdd
+        m_MethodName: Add
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -191,6 +192,19 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 4343146993799351904}
+        m_TargetAssemblyTypeName: Scripts.Components.Animations.SpriteAnimationsComponent,
+          Assembly-CSharp
+        m_MethodName: SetClip
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: destroy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &4343146993799351932
@@ -207,25 +221,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: Key
   _value: 1
-  _OnSuccess:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4343146993799351904}
-        m_TargetAssemblyTypeName: Scripts.Components.Animations.SpriteAnimationsComponent,
-          Assembly-CSharp
-        m_MethodName: SetClip
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: destroy
-          m_BoolArgument: 0
-        m_CallState: 2
-  _OnFail:
-    m_PersistentCalls:
-      m_Calls: []
 --- !u!114 &4343146993799351933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -239,3 +234,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _objectToDestroy: {fileID: 4343146993799351905}
+--- !u!114 &6213536467522787106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4343146993799351905}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92850dff14b66084db8366df8bbfe035, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sound: {fileID: 8300000, guid: 12cb0faa2060f9a47928a4c6677401b4, type: 3}

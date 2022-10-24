@@ -1,8 +1,4 @@
-﻿using UnityEngine;
-using System;
-using Scripts.Utils.Disposables;
-
-namespace Scripts.Model.Data.Properties
+﻿namespace Scripts.Model.Data.Properties
 {
     public abstract class PersistentProperty<TPropertyType> : ObservableProperty<TPropertyType>
     {

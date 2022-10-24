@@ -16,11 +16,12 @@ namespace Scripts.Model
         private PlayerData _data;
 
         private PlayerData _savedData;
-        private List<string> _checkPoints = new ();
+        private readonly List<string> _checkPoints = new ();
         private readonly CompositeDisposable _trash = new ();
 
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
+        public PerksModel PerksModel { get; private set; }
 
         private void Awake()
         {
@@ -87,15 +88,20 @@ namespace Scripts.Model
 
         private void InitInventoryModels()
         {
-            QuickInventory = new QuickInventoryModel(Data);
+            QuickInventory = new QuickInventoryModel(_data);
             _trash.Retain(QuickInventory);
+
+            PerksModel = new PerksModel(_data);
+            _trash.Retain(PerksModel);
         }
 
         public void LoadLastSave()
         {
-            _trash.Dispose();
-            InitInventoryModels();
             _data = _savedData.Clone();
+
+            _trash.Dispose();
+
+            InitInventoryModels();
         }
 
         public bool IsChecked(string id)

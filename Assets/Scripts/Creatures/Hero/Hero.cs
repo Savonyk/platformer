@@ -10,6 +10,8 @@ using Scripts.Components.Health;
 using System.Collections;
 using Scripts.Model.Data;
 using Scripts.Model.Def;
+using Scripts.Model.Def.Repository;
+using Scripts.Model.Def.Repository.Items;
 
 namespace Scripts.Creatures.Hero
 {
@@ -46,6 +48,8 @@ namespace Scripts.Creatures.Hero
         private readonly static int _ThrowKey = Animator.StringToHash("throw");
         private readonly static int _IsOnWallKey = Animator.StringToHash("isOnWall");
         private const string SwordId = "Sword";
+        private ResetComponent _speedUpTime = new();
+        private float _speedUpValue;
 
         private int CoinsCount => _currentSession.Data.Inventory.ItemCount("Coin");
         private string SelectedItemId => _currentSession.QuickInventory.SelectedItem.Id;
@@ -108,11 +112,6 @@ namespace Scripts.Creatures.Hero
             {
                 UpdateHeroWeapon();
             }
-        }
-
-        private void OnDestroy()
-        {
-            _currentSession.Data.Inventory.OnChanged -= OnInventoryChanged;
         }
 
         protected override float CalculateYVelocity()
@@ -212,6 +211,8 @@ namespace Scripts.Creatures.Hero
         {
             if (!CanCurrentItemThrow|| !_throwCoolDown.IsReady) return;
 
+            if (!HasSelectedItemTag(ItemTagDefinition.Throwable)) return;
+
             if (_superTrowCoolDown.IsReady)
             {
                 _isSuperThrow = true;
@@ -259,18 +260,34 @@ namespace Scripts.Creatures.Hero
  
         }
 
+        public void UseCurrentItem()
+        {
+            if (!HasSelectedItemTag(ItemTagDefinition.Potion)) return;
+
+            if (_currentSession.Data.Health.Value == DefinitionFacade.Instance.Player.MaxHealth) return;
+
+            var potion = DefinitionFacade.Instance.Potions.GetItem(SelectedItemId);
+
+            switch (potion.Effect)
+            {
+                case PotionEffect.AddHealth:
+                    _currentSession.Data.Health.Value += (int)potion.Value;
+                    break;
+                case PotionEffect.SpeedUp:
+                    break;
+            }
+
+            _currentSession.Data.Inventory.Remove(potion.Id, 1);
+        }
+
+        public bool HasSelectedItemTag(ItemTagDefinition tag)
+        {
+            return _currentSession.QuickInventory.SelectedDefinition.HasTag(tag);
+        }
+
         private void UpdateHeroWeapon()
         {
             Animator.runtimeAnimatorController = SwordsCount > 0 ? _armed : _unarmed;
-        }
-
-        public void UseCurrentItem()
-        {
-            var healthPotion = _currentSession.Data.Inventory.ItemCount("HealthPotion");
-            if (healthPotion <= 0) return;
-
-            _healthComponent.ModifyHealth(5);
-            _currentSession.Data.Inventory.Remove("HealthPotion", 1);
         }
 
         public void ChangeHealth(int health)
@@ -286,6 +303,11 @@ namespace Scripts.Creatures.Hero
         public void OnPerformedPause()
         {
             OpenWindowUtils.CreateWindow("UI/PauseWindow");
+        }
+
+        private void OnDestroy()
+        {
+            _currentSession.Data.Inventory.OnChanged -= OnInventoryChanged;
         }
     }
 }
