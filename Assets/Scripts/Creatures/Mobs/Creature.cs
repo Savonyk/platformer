@@ -54,7 +54,7 @@ namespace Scripts.Creatures.Mobs
 
         private void FixedUpdate()
         {
-            var xVelocity = _direction.x * _speed;
+            var xVelocity = _direction.x * CalculateSpeed();
             var yVelocity = CalculateYVelocity();
 
             Rigidbody.velocity = new Vector2(xVelocity, yVelocity);
@@ -64,6 +64,11 @@ namespace Scripts.Creatures.Mobs
             Animator.SetFloat(_verticalVelocityKey, Rigidbody.velocity.y);
 
             UpdateSrpiteDirection(_direction);
+        }
+
+        protected virtual float CalculateSpeed()
+        {
+            return _speed;
         }
 
         protected virtual float CalculateYVelocity()

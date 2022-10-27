@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Scripts.Model.Def.Player;
 using Scripts.Model.Def.Repository.Items;
 
 namespace Scripts.Model.Def

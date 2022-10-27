@@ -14062,7 +14062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b118330c8ee51845b94171ebb79c151, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _path: UI/ManagePerksWindow
+  _path: UI/StatsManagerWindow
 --- !u!1001 &1390140927
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14614,14 +14614,16 @@ MonoBehaviour:
       - Id: Sword
         Value: 10
       - Id: Coin
-        Value: 50
+        Value: 250000
       - Id: BigHealthPotion
         Value: 10
     Health:
-      _value: 2
+      _value: 4
     Perks:
       _usingPerks: []
       _unlocked: []
+    Levels:
+      _progress: []
 --- !u!4 &1616543967
 Transform:
   m_ObjectHideFlags: 0

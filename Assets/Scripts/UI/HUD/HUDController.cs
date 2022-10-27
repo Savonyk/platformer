@@ -2,6 +2,7 @@
 using Scripts.UI.Widgets;
 using Scripts.Model;
 using Scripts.Model.Def;
+using Scripts.Model.Def.Player;
 
 namespace Scripts.UI.HUD
 {
@@ -22,7 +23,7 @@ namespace Scripts.UI.HUD
 
         private void OnHealthChanged(int newValue, int oldValue)
         {
-            var maxHealth = DefinitionFacade.Instance.Player.MaxHealth;
+            var maxHealth = _session.StatsModel.GetValue(StatId.Health);
             var value = (float)newValue / maxHealth;
             _progressBar.SetProgress(value);
         }

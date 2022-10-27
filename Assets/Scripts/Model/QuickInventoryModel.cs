@@ -5,8 +5,9 @@ using Scripts.Utils.Disposables;
 using Scripts.Model.Def.Repository;
 using Scripts.Model.Data.Properties;
 using Scripts.Model.Def.Repository.Items;
+using Scripts.Model.Data;
 
-namespace Scripts.Model.Data
+namespace Scripts.Model
 {
     public class QuickInventoryModel : IDisposable
     {

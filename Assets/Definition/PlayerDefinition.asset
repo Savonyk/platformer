@@ -15,3 +15,52 @@ MonoBehaviour:
   _inventorySize: 10
   _maxHealth: 10
   _maxPerksCount: 3
+  _stats:
+  - _id: 0
+    _name: Health
+    _icon: {fileID: 21300000, guid: f6591eb207f6835409cf118eed2faaae, type: 3}
+    _levels:
+    - _value: 5
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 100
+    - _value: 20
+      _price:
+        _itemId: Coin
+        _count: 1000
+    - _value: 40
+      _price:
+        _itemId: Coin
+        _count: 10000
+  - _id: 1
+    _name: Speed
+    _icon: {fileID: 21300000, guid: 5c154253c003dbd409b5bf67a09e108e, type: 3}
+    _levels:
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 4
+      _price:
+        _itemId: Coin
+        _count: 100
+    - _value: 10
+      _price:
+        _itemId: Coin
+        _count: 1000
+  - _id: 2
+    _name: AttackRange
+    _icon: {fileID: 21300000, guid: 99ae31ea01378004687a0b822f1318e7, type: 3}
+    _levels:
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 10
+    - _value: 2
+      _price:
+        _itemId: Coin
+        _count: 10

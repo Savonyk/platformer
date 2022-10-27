@@ -12,6 +12,7 @@ namespace Scripts.Model.Data
 
         public IntObservableProperty Health = new ();
         public PerksData Perks = new ();
+        public LevelData Levels = new LevelData();
         public InventoryData Inventory => _inventory;
 
         public PlayerData Clone()

@@ -60,7 +60,7 @@
     <Compile Include="Assets\Scripts\Model\Def\Repository\ItemTagDefinition.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\OptionItemWidget.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\BaseAIController.cs" />
-    <Compile Include="Assets\Scripts\Model\Data\PerksModel.cs" />
+    <Compile Include="Assets\Scripts\Model\PerksModel.cs" />
     <Compile Include="Assets\Scripts\Model\GameSession.cs" />
     <Compile Include="Assets\Scripts\Creatures\Weapon\SinusoidalProjectile.cs" />
     <Compile Include="Assets\Scripts\Components\Health\RadialModifyHealthComponent.cs" />
@@ -72,7 +72,7 @@
     <Compile Include="Assets\Scripts\UI\HUD\Dialogs\DialogBoxController.cs" />
     <Compile Include="Assets\Scripts\Creatures\Hero\HeroInputReader.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\SpawnComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Def\PlayerDefinition.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Player\PlayerDefinition.cs" />
     <Compile Include="Assets\Scripts\Components\Movement\CircleLevitation.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\ObservableProperty.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\ColiderCheckComponent.cs" />
@@ -125,6 +125,7 @@
     <Compile Include="Assets\Scripts\Model\Def\Repository\Items\RepositoryDefinition.cs" />
     <Compile Include="Assets\Scripts\UI\HUD\ActivePerks\ActivePerksController.cs" />
     <Compile Include="Assets\Scripts\UI\Windows\LocalizationWindow.cs" />
+    <Compile Include="Assets\Scripts\UI\Widgets\StatItemWidget.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\RandomSpawnerComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\Disposables\UnityEventExtensions.cs" />
     <Compile Include="Assets\Scripts\Creatures\Hero\Hero.cs" />
@@ -139,14 +140,16 @@
     <Compile Include="Assets\Scripts\Model\Data\Properties\PersistentProperty.cs" />
     <Compile Include="Assets\Scripts\Utils\HandlesColors.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManagment\TeleportComponent.cs" />
-    <Compile Include="Assets\Scripts\Model\Data\QuickInventoryModel.cs" />
+    <Compile Include="Assets\Scripts\Model\QuickInventoryModel.cs" />
     <Compile Include="Assets\Scripts\Components\Collactable\CollectorComponent.cs" />
     <Compile Include="Assets\Scripts\Model\Data\GameSettings.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\PredefinedDataGroup.cs" />
     <Compile Include="Assets\Scripts\Creatures\Mobs\AI\Coroutines\PlatformPatrol.cs" />
+    <Compile Include="Assets\Scripts\Model\StatsModel.cs" />
     <Compile Include="Assets\Scripts\Model\Data\PlayerData.cs" />
     <Compile Include="Assets\Scripts\Components\Audio\PlayClipComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\SfxAudioUtils.cs" />
+    <Compile Include="Assets\Scripts\Model\Def\Player\StatDefinition.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\DestroyObjectComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Windows\MainMenuWindow.cs" />
     <Compile Include="Assets\Scripts\Components\Health\ModifyHealthComponent.cs" />
@@ -162,6 +165,7 @@
     <Compile Include="Assets\Scripts\Components\LevelManagment\TrapsManager.cs" />
     <Compile Include="Assets\UserInputs\HeroInputActions.cs" />
     <Compile Include="Assets\Scripts\Components\LevelManagment\ShowWindowComponent.cs" />
+    <Compile Include="Assets\Scripts\Model\Data\LevelData.cs" />
     <Compile Include="Assets\Scripts\Model\Data\Properties\IntObservableProperty.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\ButtonSound.cs" />
     <Compile Include="Assets\Scripts\Components\Interactions\RequireItemComponent.cs" />
@@ -171,6 +175,7 @@
     <Compile Include="Assets\Scripts\Components\Collactable\InventoryAddComponent.cs" />
     <Compile Include="Assets\Scripts\Components\ColiderBased\EnterTriggerComponent.cs" />
     <Compile Include="Assets\Scripts\Utils\Disposables\ActionDisposable.cs" />
+    <Compile Include="Assets\Scripts\UI\Windows\PlayerStatWindow.cs" />
     <Compile Include="Assets\Scripts\Components\GameObjectsBased\DropByProbabilityComponent.cs" />
     <Compile Include="Assets\Scripts\UI\Widgets\LocaleItemWidget.cs" />
     <Compile Include="Assets\Scripts\Model\Def\IHaveId.cs" />

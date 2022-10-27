@@ -5,6 +5,7 @@ using Scripts.Utils.Disposables;
 using Scripts.Components.LevelManagment;
 using System.Collections.Generic;
 using System.Linq;
+using Scripts.Model.Def.Player;
 
 namespace Scripts.Model
 {
@@ -22,6 +23,7 @@ namespace Scripts.Model
         public PlayerData Data => _data;
         public QuickInventoryModel QuickInventory { get; private set; }
         public PerksModel PerksModel { get; private set; }
+        public StatsModel StatsModel { get; private set; }
 
         private void Awake()
         {
@@ -93,6 +95,11 @@ namespace Scripts.Model
 
             PerksModel = new PerksModel(_data);
             _trash.Retain(PerksModel);
+
+            StatsModel = new StatsModel(_data);
+            _trash.Retain(StatsModel);
+
+            _data.Health.Value = (int)StatsModel.GetValue(StatId.Health);
         }
 
         public void LoadLastSave()

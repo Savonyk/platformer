@@ -16,18 +16,21 @@ MonoBehaviour:
   - _id: doubleJump
     _icon: {fileID: 21300000, guid: 8e3d49da45934c74389da64dfb10286c, type: 3}
     _textInfo: double jump
+    _coolDownTime: 2
     _price:
       _itemId: Coin
       _count: 5
   - _id: superThrow
     _icon: {fileID: 21300000, guid: 9bb9dcc12fba3b54e8c631d4c3793831, type: 3}
     _textInfo: super throw
+    _coolDownTime: 5
     _price:
       _itemId: Coin
       _count: 5
   - _id: forceShield
     _icon: {fileID: 21300000, guid: 9340674f4e53bcf4ab6971cdcc5dcfb3, type: 3}
     _textInfo: shield
+    _coolDownTime: 10
     _price:
       _itemId: Coin
       _count: 6

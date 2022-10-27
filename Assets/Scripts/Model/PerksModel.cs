@@ -1,13 +1,11 @@
 ﻿using System;
-using UnityEngine;
 using Scripts.Model.Def;
 using Scripts.Utils.Disposables;
-using Scripts.Model.Def.Repository;
 using Scripts.Model.Data.Properties;
-using Scripts.Model.Def.Repository.Items;
 using System.Collections.Generic;
+using Scripts.Model.Data;
 
-namespace Scripts.Model.Data
+namespace Scripts.Model
 {
     public class PerksModel : IDisposable
     {

@@ -12,6 +12,7 @@ using Scripts.Model.Data;
 using Scripts.Model.Def;
 using Scripts.Model.Def.Repository;
 using Scripts.Model.Def.Repository.Items;
+using Scripts.Model.Def.Player;
 
 namespace Scripts.Creatures.Hero
 {
@@ -84,7 +85,24 @@ namespace Scripts.Creatures.Hero
             _healthComponent = GetComponent<HealthComponent>();
             _healthComponent.Health = _currentSession.Data.Health.Value;
             _currentSession.Data.Inventory.OnChanged += OnInventoryChanged;
+            _currentSession.StatsModel.OnUpgraded += OnHeroUpgraded;
             UpdateHeroWeapon();
+        }
+
+        private void OnHeroUpgraded(StatId state)
+        {
+            switch (state)
+            {
+                case StatId.Health:
+                    var newHealth = (int)_currentSession.StatsModel.GetValue(state);
+                    _currentSession.Data.Health.Value = newHealth;
+                    _healthComponent.Health = newHealth;
+                    break;
+                case StatId.Speed:
+                    break;
+                case StatId.AttackRange:
+                    break;
+            }
         }
 
         protected override void Update()
@@ -104,6 +122,16 @@ namespace Scripts.Creatures.Hero
                 Rigidbody.gravityScale = _defaultGravityForce;
             }
             Animator.SetBool(_IsOnWallKey, _isRepluseToWall);
+        }
+
+        protected override float CalculateSpeed()
+        {
+            if (_speedUpTime.IsReady)
+            {
+                _speedUpValue = 0;
+            }
+
+            return _currentSession.StatsModel.GetValue(StatId.Speed) + _speedUpValue;
         }
 
         private void OnInventoryChanged(string id, int value)
@@ -274,6 +302,9 @@ namespace Scripts.Creatures.Hero
                     _currentSession.Data.Health.Value += (int)potion.Value;
                     break;
                 case PotionEffect.SpeedUp:
+                    _speedUpValue += potion.Value;
+                    _speedUpTime.SetTime(potion.Time);
+                    _speedUpTime.Reset();
                     break;
             }
 
